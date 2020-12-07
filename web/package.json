@@ -5,7 +5,8 @@
   "author": "someone",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    "autoinstall": "F=node_modules/.cache/last-install.md5; if (! test -f $F) || (! md5sum -c $F --status) ; then npm install --no-save && mkdir -p $(dirname $F) && md5sum package-lock.json > $F; fi",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {

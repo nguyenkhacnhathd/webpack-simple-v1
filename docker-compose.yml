@@ -1,0 +1,10 @@
+version: '2.4'
+services:
+  web:
+    image: node:14.7.0-buster-slim
+    ports:
+      - 8110:3000
+    working_dir: /var/app/web
+    volumes:
+      - .:/var/app:cached
+    command: ["bash", "-c", "npm run autoinstall && exec npm run dev"]
